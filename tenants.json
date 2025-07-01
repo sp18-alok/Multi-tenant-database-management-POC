@@ -1,0 +1,12 @@
+[
+    {
+      "provider": "postgresql",
+      "url": "postgresql://postgres:root@localhost:5432/testtenantdb",
+      "tenantName": "Test Tenant 1"
+    },
+    {
+      "provider": "postgresql", 
+      "url": "postgresql://postgres:root@localhost:5432/anotherdb",
+      "tenantName": "Test Tenant 2"
+    }
+]

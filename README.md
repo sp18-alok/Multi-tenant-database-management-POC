@@ -21,7 +21,7 @@
 - **Body:**
   ```json
   {
-    "provider": "postgresql", // or "mysql", "sqlite"
+    "provider": "postgresql",
     "url": "<your-db-connection-string>",
     "tenantName": "Tenant Name"
   }

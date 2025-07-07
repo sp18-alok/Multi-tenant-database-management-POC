@@ -9,7 +9,7 @@ export interface DBConfig {
 }
 
 export async function runMigrations(dbConfig: DBConfig): Promise<void> {
-  const dataSource = createDataSource(dbConfig.url);
+  const dataSource = createDataSource(dbConfig.url, dbConfig.provider);
   
   try {
     await dataSource.initialize();
@@ -20,7 +20,7 @@ export async function runMigrations(dbConfig: DBConfig): Promise<void> {
 }
 
 export function getDataSource(dbConfig: DBConfig): DataSource {
-  return createDataSource(dbConfig.url);
+  return createDataSource(dbConfig.url, dbConfig.provider);
 }
 
 export async function addTenant(dbConfig: DBConfig, name: string): Promise<Tenant> {
@@ -57,7 +57,7 @@ export class TenantConnectionManager {
     const key = `${tenantId}_${dbConfig.url}`;
     
     if (!this.connections.has(key)) {
-      const dataSource = createDataSource(dbConfig.url);
+      const dataSource = createDataSource(dbConfig.url, dbConfig.provider);
       await dataSource.initialize();
       this.connections.set(key, dataSource);
     }

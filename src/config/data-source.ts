@@ -3,9 +3,9 @@ import { DataSource } from "typeorm";
 import { Tenant } from "../entities/Tenant";
 import { User } from "../entities/User";
 
-export const createDataSource = (databaseUrl: string): DataSource => {
+export const createDataSource = (databaseUrl: string, provider: string): DataSource => {
   return new DataSource({
-    type: "postgres",
+    type: provider as any,
     url: databaseUrl,
     synchronize: false, // We'll use migrations instead
     logging: false,

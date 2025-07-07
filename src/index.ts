@@ -64,7 +64,7 @@ app.post('/verify-database', async (req: Request, res: Response): Promise<void> 
   }
 
   try {
-    const verifier = new DatabaseVerifier(url);
+    const verifier = new DatabaseVerifier(url, provider);
     const result = await verifier.runFullVerification(tenantName, userEmail);
     res.json(result);
   } catch (err) {
@@ -80,7 +80,7 @@ app.post('/verify-connection', async (req: Request, res: Response): Promise<void
   }
 
   try {
-    const verifier = new DatabaseVerifier(url);
+    const verifier = new DatabaseVerifier(url, provider);
     const result = await verifier.verifyConnection();
     res.json(result);
   } catch (err) {
@@ -96,7 +96,7 @@ app.post('/verify-tables', async (req: Request, res: Response): Promise<void> =>
   }
 
   try {
-    const verifier = new DatabaseVerifier(url);
+    const verifier = new DatabaseVerifier(url, provider);
     const result = await verifier.verifyTablesExist();
     res.json(result);
   } catch (err) {
@@ -112,7 +112,7 @@ app.post('/verify-tenant', async (req: Request, res: Response): Promise<void> =>
   }
 
   try {
-    const verifier = new DatabaseVerifier(url);
+    const verifier = new DatabaseVerifier(url, provider);
     const result = await verifier.verifyTenantData(tenantName);
     res.json(result);
   } catch (err) {
@@ -128,7 +128,7 @@ app.post('/verify-user', async (req: Request, res: Response): Promise<void> => {
   }
 
   try {
-    const verifier = new DatabaseVerifier(url);
+    const verifier = new DatabaseVerifier(url, provider);
     const result = await verifier.verifyUserData(email);
     res.json(result);
   } catch (err) {
@@ -144,7 +144,7 @@ app.post('/get-all-tenants', async (req: Request, res: Response): Promise<void> 
   }
 
   try {
-    const verifier = new DatabaseVerifier(url);
+    const verifier = new DatabaseVerifier(url, provider);
     const result = await verifier.getAllTenants();
     res.json(result);
   } catch (err) {
@@ -160,7 +160,7 @@ app.post('/get-all-users', async (req: Request, res: Response): Promise<void> =>
   }
 
   try {
-    const verifier = new DatabaseVerifier(url);
+    const verifier = new DatabaseVerifier(url, provider);
     const result = await verifier.getAllUsers();
     res.json(result);
   } catch (err) {

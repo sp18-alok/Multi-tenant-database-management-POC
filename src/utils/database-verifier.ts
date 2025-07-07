@@ -13,8 +13,8 @@ export interface DatabaseVerificationResult {
 export class DatabaseVerifier {
   private dataSource: DataSource;
 
-  constructor(databaseUrl: string) {
-    this.dataSource = createDataSource(databaseUrl);
+  constructor(databaseUrl: string, provider: string) {
+    this.dataSource = createDataSource(databaseUrl, provider);
   }
 
   async verifyConnection(): Promise<DatabaseVerificationResult> {

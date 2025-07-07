@@ -171,7 +171,6 @@ curl -X POST http://localhost:3000/setup-tenant \
     "url": "postgresql://user:password@host:port/dbname",
     "tenantName": "Acme Corp"
   }'
->>>>>>> cb64b51940760dec622ecabd9030ba7692108cc4
 ```
 
 ## Production Considerations
@@ -199,7 +198,6 @@ The project uses TypeScript with decorator support enabled for TypeORM:
   "emitDecoratorMetadata": true
 }
 ```
-=======
 ## Command to run the script
 - For Bash Script    :    chmod +x setup_tenants.sh ./setup_tenants.sh
 - For Node.js script : node setupTenants.js
